@@ -493,3 +493,61 @@ resultado_resta = resta(num1, num2)  # llama a la funcion resta
 
 print(resultado_suma)
 print(resultado_resta)
+
+# ======================================================================================================
+
+db_productos =[]
+
+# Menu ===============================================================================================
+
+def menu():
+
+    print("\nBienvenido al sistema de gestión de productos.")
+    print("Seleccione una opción:")
+    print("1. Agregar producto")
+    print("2. Mostrar productos")
+    print("3. Buscar producto")
+    print("4. Eliminar producto")
+    print("5. Salir")
+
+# Agregar Producto ===================================================================================
+
+def agregar_producto():
+
+    nombre = input("Ingrese el nombre del producto: ").strip()
+    precio = float(input("Ingrese el precio del producto: ").strip())
+
+    producto = [nombre, precio]
+    db_productos.append(producto)
+
+# Mostrar Productos ==================================================================================
+
+def mostrar_productos(lista):
+
+    for producto in lista:
+        print(f"{producto[0]}\t{producto[1]}")
+
+# Salir ==============================================================================================
+
+def salir():
+
+    print("Saliendo del sistema...")
+
+# ======================================================================================================
+
+while True:
+    menu()
+    opcion = input("Ingrese su opción: ")
+
+    match opcion:
+        case 1:
+            agregar_producto()
+        case 2:
+            mostrar_productos(db_productos)
+        case 3:
+            buscar_producto()
+        case 4:
+            eliminar_producto()
+        case 5:
+            salir()
+            break
