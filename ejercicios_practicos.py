@@ -472,7 +472,7 @@ while True:
 
 # Ejercicio Practico 9 ================================================================================
     
-def saludo(nombre):
+""" def saludo(nombre):
     print("Hola", nombre)
 
 saludo("Jose")  # llama a la funcion saludo
@@ -492,11 +492,11 @@ resultado_suma = suma(num1, num2)  # llama a la funcion suma
 resultado_resta = resta(num1, num2)  # llama a la funcion resta
 
 print(resultado_suma)
-print(resultado_resta)
+print(resultado_resta) """
 
 # ======================================================================================================
 
-db_productos =[]
+""" db_productos =[]
 
 # Menu ===============================================================================================
 
@@ -549,5 +549,113 @@ while True:
         case 4:
             eliminar_producto()
         case 5:
+            salir()
+            break
+"""
+
+# Ejercicio Practico 10 ============================================================================
+
+""" # funcion sin retorno
+def mensaje_bienvenida(nombre):
+    print("Bienvenido/a ", nombre)
+
+# funcion con retorno
+def calcular_precio_final(precio):
+    impuesto = float(input("Ingrese el porcentaje de impuesto: "))
+    return precio + (precio * impuesto / 100)
+
+# funcion con varios retornos
+def calcular_superficio_perimetro_rectangulo(base, altura):
+
+
+    @params base: La base del rectángulo
+    @params altura: La altura del rectángulo
+
+    @return: superficie y el perímetro del rectángulo
+    1. Superficie: tamaño del rectángulo (base * altura)
+    2. Perímetro: tamaño del borde del rectángulo (2 * (base + altura))
+
+    
+
+    superficie = base * altura
+    perimetro = 2 * (base + altura)
+    return superficie, perimetro
+
+superficie, perimetro = calcular_superficio_perimetro_rectangulo(5, 10)
+print(f"Superficie: {superficie}, Perímetro: {perimetro}") """
+
+# ======================================================================================================
+
+db_productos =[]
+
+db_productos_vencidos =[]
+
+# Menu ===============================================================================================
+
+def menu():
+
+    print("\nBienvenido al sistema de gestión de productos.")
+    print("Seleccione una opción:")
+    print("1. Agregar producto")
+    print("2. Mostrar productos")
+    print("3. Buscar producto")
+    print("4. Eliminar producto")
+    print("5. Salir")
+
+# Agregar Producto ===================================================================================
+
+def agregar_producto():
+
+    nombre = input("Ingrese el nombre del producto: ")
+    precio = float(input("Ingrese el precio del producto: "))
+
+    producto = [nombre, precio]
+    return producto
+
+# Mostrar Productos ==================================================================================
+
+def mostrar_productos(lista):
+
+    for producto in lista:
+        print(f"{producto[0]}\t{producto[1]}")
+
+# Eliminar Producto ==================================================================================
+
+def eliminar_producto(lista):
+
+    nombre = input("Ingrese el nombre del producto a eliminar: ") 
+
+    for index in range(len(lista)):
+        if lista[index][0] == nombre:
+            lista.remove(lista[index])
+            print(f"Producto '{nombre}' eliminado.")
+            return
+    if not lista:
+        print(f"Producto '{nombre}' no encontrado.")
+
+# Salir ==============================================================================================
+
+def salir():
+
+    print("Saliendo del sistema...")
+
+# ======================================================================================================
+
+while True:
+    menu()
+
+    opcion = input("Ingrese su opción: ")
+
+    match opcion:
+        case "1":
+            producto = agregar_producto()
+            db_productos.append(producto)
+        case "2":
+            mostrar_productos(db_productos)
+        case "3":
+            buscar_producto()
+        case "4":
+            eliminar_producto(db_productos)
+        case "5":
             salir()
             break
