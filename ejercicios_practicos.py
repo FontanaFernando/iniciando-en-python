@@ -586,7 +586,7 @@ print(f"Superficie: {superficie}, Perímetro: {perimetro}") """
 
 # ======================================================================================================
 
-db_productos =[]
+""" db_productos =[]
 
 db_productos_vencidos =[]
 
@@ -658,4 +658,18 @@ while True:
             eliminar_producto(db_productos)
         case "5":
             salir()
-            break
+            break """
+
+# Ejercicio Practico 11 ============================================================================
+
+def saludar(nombre: str):
+    return f"Hola, {nombre}"
+
+def suma(a: int, b: int):
+    return a + b
+
+if __name__ == "__main__":
+    # Esto se ejecuta solo aca
+    print(saludar("Jose"))
+    print(suma(2,1))
+
