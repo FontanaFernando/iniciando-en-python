@@ -586,7 +586,9 @@ print(f"Superficie: {superficie}, Perímetro: {perimetro}") """
 
 # ======================================================================================================
 
-""" db_productos =[]
+from datetime import datetime
+
+db_productos =[]
 
 db_productos_vencidos =[]
 
@@ -608,8 +610,9 @@ def agregar_producto():
 
     nombre = input("Ingrese el nombre del producto: ")
     precio = float(input("Ingrese el precio del producto: "))
+    fecha = datetime.now()
 
-    producto = [nombre, precio]
+    producto = [nombre, precio, fecha]
     return producto
 
 # Mostrar Productos ==================================================================================
@@ -617,7 +620,7 @@ def agregar_producto():
 def mostrar_productos(lista):
 
     for producto in lista:
-        print(f"{producto[0]}\t{producto[1]}")
+        print(f"Nombre: {producto[0]}\nPrecio: {producto[1]}\nFecha: {producto[2]}")
 
 # Eliminar Producto ==================================================================================
 
@@ -632,6 +635,18 @@ def eliminar_producto(lista):
             return
     if not lista:
         print(f"Producto '{nombre}' no encontrado.")
+
+# Buscar Producto ====================================================================================
+
+def buscar_producto(lista):
+
+    nombre = input("Ingrese el nombre del producto a buscar: ")
+
+    for index in range(len(lista)):
+        if lista[index][0] == nombre:
+            print(f"Producto encontrado: {producto[0]}, Precio: {producto[1]}, Fecha: {producto[2]}")
+            return
+    print(f"Producto '{nombre}' no encontrado.")
 
 # Salir ==============================================================================================
 
@@ -653,16 +668,16 @@ while True:
         case "2":
             mostrar_productos(db_productos)
         case "3":
-            buscar_producto()
+            buscar_producto(db_productos)
         case "4":
             eliminar_producto(db_productos)
         case "5":
             salir()
-            break """
+            break
 
 # Ejercicio Practico 11 ============================================================================
 
-def saludar(nombre: str):
+""" def saludar(nombre: str):
     return f"Hola, {nombre}"
 
 def suma(a: int, b: int):
@@ -671,5 +686,7 @@ def suma(a: int, b: int):
 if __name__ == "__main__":
     # Esto se ejecuta solo aca
     print(saludar("Jose"))
-    print(suma(2,1))
+    print(suma(2,1)) """
+
+# Ejercicio Practico 12 ============================================================================
 

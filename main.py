@@ -1,6 +1,6 @@
 # Ejercicio Practico 11 ============================================================================
 
-import ejercicios_practicos
+""" import ejercicios_practicos
 
 mensaje = ejercicios_practicos.saludar("Carlos")
 print(mensaje)
@@ -38,4 +38,6 @@ print(colorama.Fore.RED + "Hola" + colorama.Style.RESET_ALL)
 print(colorama.Back.YELLOW + "Hola" + colorama.Style.RESET_ALL)
 print(colorama.Style.BRIGHT + "Hola" + colorama.Style.RESET_ALL)
 
-input(f"{colorama.Fore.RED}Ingresa un producto: {colorama.Fore.LIGHTGREEN_EX}")
+input(f"{colorama.Fore.RED}Ingresa un producto: {colorama.Fore.LIGHTGREEN_EX}") """
+
+# Ejercicio Practico 12 ============================================================================
