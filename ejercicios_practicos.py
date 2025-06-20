@@ -586,7 +586,7 @@ print(f"Superficie: {superficie}, Perímetro: {perimetro}") """
 
 # ======================================================================================================
 
-from datetime import datetime
+""" from datetime import datetime
 
 db_productos =[]
 
@@ -673,7 +673,7 @@ while True:
             eliminar_producto(db_productos)
         case "5":
             salir()
-            break
+            break """
 
 # Ejercicio Practico 11 ============================================================================
 
@@ -690,3 +690,135 @@ if __name__ == "__main__":
 
 # Ejercicio Practico 12 ============================================================================
 
+#* r = leer
+#* w = escribir
+#* r+ = leer y escribir
+#* a = agregar contenido
+
+""" import email
+from queue import Empty
+
+
+archivo = open("documentos/documento.txt", "r")
+contenido = archivo.read()
+print(contenido)
+archivo.close()
+
+archivo = open("documentos/documento.txt", "w")
+archivo.write("esta linea es nueva\n")
+archivo.close()
+
+archivo = open("documentos/documento.txt", "a")
+archivo.write("esta linea se agrego\n")
+archivo.close()
+
+archivo = open("documentos/documento.csv", "r")
+
+for linea in archivo:
+    print(linea.strip().split(","))
+
+archivo.close()
+
+try:
+    archivo = open("documentos/documento.json", "r")
+    contenido = archivo.read()
+    archivo.close()
+except FileNotFoundError:
+    print("El archivo no existe")
+
+try:
+    precio = int(input("Ingrese el precio: "))
+    print(f"El precio ingresado es {precio}")
+
+except ValueError:
+    print("El valor ingresado no es un numero entero")
+
+try:
+    lista = ["a","b","c"]
+    del lista[9]
+except IndexError:
+    print("El indice no se encuentra") """
+
+# ======================================================================================================
+
+""" nombre = ""
+apellido = ""
+email = ""
+
+while True:
+    try:
+        nombre = input("Ingrese su nombre: ").strip()
+        apellido = input("Ingrese su apellido: ").strip()
+
+        if not nombre or not apellido:
+            print("El nombre y el apellido no pueden estar vacíos. Inténtelo de nuevo.")
+        elif not nombre.isalpha() or not apellido.isalpha():
+            print("El nombre y el apellido deben contener solo letras. Inténtelo de nuevo.")
+        else:
+            break
+    except Exception as error:
+        print(f"Ocurrió un error inesperado: {error}. Inténtelo de nuevo.")
+
+
+while True:
+    try:
+        email = input("Ingrese su email: ").strip()
+
+        if not email:
+            print("El email no puede estar vacío. Inténtelo de nuevo.")
+        elif "@" not in email or "." not in email:
+            print("El email no es válido. Debe contener '@' y '.'. Inténtelo de nuevo.")
+        else:
+            break
+    except Exception as error:
+        print(f"Ocurrió un error inesperado: {error}. Inténtelo de nuevo.")
+
+print("\n--- Datos ingresados correctamente ---")
+print(f"Nombre: {nombre}")
+print(f"Apellido: {apellido}")
+print(f"Email: {email}") """
+
+# Ejercicio Practico 13 ============================================================================
+
+import sqlite3
+
+# Crea la conexion
+conexion = sqlite3.connect("DataBase/productos.db")
+print("Conexion establecida")
+
+#Define el cursor
+cursor = conexion.cursor()
+
+#crea la tabla
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS productos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        precio INTERGER NOT NULL
+    )
+""")
+
+# Insertar datos
+nombre = input("Ingrese su nombre: ").strip()
+precio = input("Ingrese su precio: ").strip()
+
+cursor.execute("""
+    INSERT INTO productos (nombre, precio) VALUES (?,?)
+""", (nombre, precio))
+
+# Consultar datos
+cursor.execute("SELECT * FROM productos")
+productos = cursor.fetchall()
+print(productos)
+
+# Actualizar datos
+#nuevo_precio = 100
+#id_productos = 1
+#cursor.execute("UPDATE productos SET precio = ? WHERE id = ?", (nuevo_precio, id_productos))
+
+# Eliminar datos
+#id_productos = 1
+#cursor.execute("DELETE FROM productos WHERE id = ?" , (id_productos,))
+
+conexion.commit()
+conexion.close()

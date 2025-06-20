@@ -40,4 +40,45 @@ print(colorama.Style.BRIGHT + "Hola" + colorama.Style.RESET_ALL)
 
 input(f"{colorama.Fore.RED}Ingresa un producto: {colorama.Fore.LIGHTGREEN_EX}") """
 
-# Ejercicio Practico 12 ============================================================================
+# Ejercicio Practico 13 ============================================================================
+
+import sqlite3
+
+# Crea la conexion
+conexion = sqlite3.connect("DataBase/baseDatos.db")
+print("Conexion establecida")
+
+#Define el cursor
+cursor = conexion.cursor()
+
+#crea la tabla
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS baseDatos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        categoria TEXT NOT NULL,
+        precio INTERGER NOT NULL
+    )
+""")
+
+# Insertar datos
+#cursor.execute("""
+#    INSERT INTO baseDatos (nombre, categoria, precio) VALUES (?,?,?)
+#""", ("tomate","fruta",50))
+
+# Consultar datos
+#cursor.execute("SELECT * FROM baseDatos")
+#baseDatos = cursor.fetchall()
+#print(baseDatos)
+
+# Actualizar datos
+#nuevo_precio = 100
+#id_baseDatos = 1
+#cursor.execute("UPDATE baseDatos SET precio = ? WHERE id = ?", (nuevo_precio, id_baseDatos))
+
+# Eliminar datos
+#id_baseDatos = 1
+#cursor.execute("DELETE FROM baseDatos WHERE id = ?" , (id_baseDatos,))
+
+conexion.commit()
+conexion.close()
