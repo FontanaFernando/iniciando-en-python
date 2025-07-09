@@ -789,7 +789,7 @@ print("Conexion establecida")
 #Define el cursor
 cursor = conexion.cursor()
 
-#crea la tabla
+#Crea una tabla
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS productos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -822,3 +822,6 @@ print(productos)
 
 conexion.commit()
 conexion.close()
+
+# Ejercicio Practico 14 ============================================================================
+
