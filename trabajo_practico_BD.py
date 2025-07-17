@@ -50,8 +50,8 @@ def agregar():
         conexion = sqlite3.connect("DataBase/inventario.db")
         cursor = conexion.cursor()
 
-        nombre = input("Ingrese el nombre del producto: ")
-        descripcion = input("Ingrese la descripción del producto: ")
+        nombre = input("Ingrese el nombre del producto: ").strip()
+        descripcion = input("Ingrese la descripción del producto: ").strip()
         
         # Validación de entrada para cantidad y precio
         try:
